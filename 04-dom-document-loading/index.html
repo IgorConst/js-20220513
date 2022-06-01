@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script>
+  class BaseComponent {
+    static description = 'some title';
+
+    getColor () {
+      super.getColor();
+      console.error(this.color);
+    }
+
+    render () {
+      console.error(this.color);
+    }
+
+    remove () {
+      console.error(this.color);
+    }
+
+    destroy () {
+      console.error(this.color);
+    }
+  }
+
+  class Component extends BaseComponent {
+    constructor(color) {
+      super();
+      this.color = color;
+    }
+
+    getColor () {
+      super.getColor();
+
+      console.error(1111);
+    }
+  }
+
+  const obj = new Component('green');
+
+  obj.getColor();
+</script>
